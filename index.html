@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vocab — a polished Wordle-style word game by Javid Babayev. Portfolio project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vocab — Word Puzzle</title>
+    <script>
+      try {
+        var s = JSON.parse(
+          localStorage.getItem("vocab-settings") || localStorage.getItem("lex-settings") || "{}"
+        );
+        var themes = ["dark", "light", "ocean", "sunset", "forest", "midnight"];
+        if (s.colorTheme && themes.indexOf(s.colorTheme) >= 0)
+          document.documentElement.setAttribute("data-theme", s.colorTheme);
+        else document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
